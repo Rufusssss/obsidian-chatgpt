@@ -1,0 +1,31 @@
+{
+  "name": "obsidian-chatgpt-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A local MCP server that lets ChatGPT interact with one Obsidian vault.",
+  "type": "module",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "dev": "node --env-file-if-exists=.env --watch src/index.ts",
+    "mcp:start": "node --env-file-if-exists=.env src/index.ts",
+    "mcp:test": "node --test tests/mcp-server.test.ts",
+    "mcp:smoke": "node scripts/mcp-smoke-test.ts",
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test \"tests/**/*.test.ts\"",
+    "start": "node --env-file-if-exists=.env dist/src/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "typescript": "^7.0.2"
+  }
+}
